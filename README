@@ -4,26 +4,40 @@ README - Learn-git
 * Get a local copy of the project.
 	* git clone [url]
 		Examples:
-			$ git clone git@github.com:jwest80:Learn-git.git
-			$ git clone git@github.com:auditconf/auditconfirmations.git
+			$ git clone git@github.com:jwest80:Learn-git.git				(public)
+			$ git clone git@github.com:auditconf/auditconfirmations.git		(private)
 	*
 	
 * Basic Snapshotting
 	* git add - Start tracking new file or changes to a file (Adds file to Staging area)
-		-A : Adds all files being tracked to staging area.
+		* -A : Adds all files being tracked to staging area.
 	* git status - To be commited and New or Modified Files not in staging area.
 	* git diff - Shows differences between files (My Windows Version seems to be breaking, or I don't know what im doing?)
 	* git commit - Records a snapshot of staging area
 		Example:
 			$git commit -m 'I made some changes'
 			(leaving off the -m will open vim for you to add comments)
-	* git reset Head [file] & git rm [file]
-		* reset Head - "unstages" a file or reverts the file to what it was before we started modifying things. 
-		* rm - will remove the file from the staging area entirely and from your disk (effectivly deleting it). You can keep it on the disk by using rm --cached.
-	*
+	* reset Head - "unstages" a file or reverts the file to what it was before we started modifying things. 
+	* rm - will remove the file from the staging area entirely and from your disk (effectivly deleting it). You can keep it on the 	disk by using rm --cached.
+
+* Branching and Merging
+	* git branch - Used to List (default), Create, Remove, and Switch Branch Context.
+		* [branchname] : Create a new Branch from last Commit.  This is like a bookmark of a snapshot that we can return to at any point.
+	* git checkout [branchname] - Switch to branch.
 		
+
+* Sharing and Updating Projects
+	* git remote - Used to List (default), Add, Remove, Fetch, Pull, and Push Remote Repositories.
+		* -v : Show URLs in List
+		* add [alias] [url] : Adds a remote project alias
+		* rm [alias] : Removes a remote project alias
+	* git fetch [alias]/[url] - Update from a remote repository
+	* git pull [alias]/[url] - Does a "get fetch" followed by a "get merge" (This is the lazy (wo)man's way, and could cause problems)
+	* git push [alias][url] - 
+	
 * Other Tips
 	* Add an alias (Does not seem to working with Windows Version)
 		$ config --global alias.unstage "reset HEAD"  
 		Now you can unstage like this git unstage --[file] instead of git reset HEAD --[file]
-	*
+	* Turn Coloring On
+		$ git config --global color.ui true
