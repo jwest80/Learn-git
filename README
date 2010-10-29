@@ -1,43 +1,80 @@
-README - Learn-git
--------------------------------
+README - Learn-git 
+------------------------------- 
 
-* Get a local copy of the project.
-	* git clone [url]
-		Examples:
-			$ git clone git@github.com:jwest80:Learn-git.git				(public)
-			$ git clone git@github.com:auditconf/auditconfirmations.git		(private)
+For Installation Instructions and Explanation of the following 
+notes... Read the git Quick Start Guide: http://help.github.com/ 
+
+For more in-depth reserch of git tool go to http://progit.org/ 
+
+* Get a local copy of the project. 
+	* git clone [url] 
+		Examples: $ git clone git@github.com:jwest80:Learn-git.git 
+		$ git clone git@github.com:auditconf/auditconfirmations.git 
+	* 
+
+* Basic Snapshotting 
+	* git add - Start tracking new file or changes to a file 
+		(Adds file to Staging area) 
+		* -A : Adds all files being tracked to staging area. 
+	* git status - To be commited and New or Modified Files 
+		not in staging area. 
+	* git diff - Shows differences between files 
+		(Opens in vi, type :q to quit) 
+	* git commit - Records a snapshot of staging area 
+		Example: $git commit -m 'I made some changes' 
+		(leaving off the -m will open vim for you to add comments) 
+	* reset Head - "unstages" a file or reverts the file to 
+		what it was before we started modifying things. 
+	* rm - will remove the file from the staging area entirely and 
+		from your disk (effectivly deleting it). You can keep it on 
+		the disk by using rm --cached. 
 	*
 	
-* Basic Snapshotting
-	* git add - Start tracking new file or changes to a file (Adds file to Staging area)
-		* -A : Adds all files being tracked to staging area.
-	* git status - To be commited and New or Modified Files not in staging area.
-	* git diff - Shows differences between files (My Windows Version seems to be breaking, or I don't know what im doing?)
-	* git commit - Records a snapshot of staging area
-		Example:
-			$git commit -m 'I made some changes'
-			(leaving off the -m will open vim for you to add comments)
-	* reset Head - "unstages" a file or reverts the file to what it was before we started modifying things. 
-	* rm - will remove the file from the staging area entirely and from your disk (effectivly deleting it). You can keep it on the 	disk by using rm --cached.
-
-* Branching and Merging
-	* git branch - Used to List (default), Create, Remove, and Switch Branch Context.
-		* [branchname] : Create a new Branch from last Commit.  This is like a bookmark of a snapshot that we can return to at any point.
-	* git checkout [branchname] - Switch to branch.
-		
-
-* Sharing and Updating Projects
-	* git remote - Used to List (default), Add, Remove, Fetch, Pull, and Push Remote Repositories.
-		* -v : Show URLs in List
-		* add [alias] [url] : Adds a remote project alias
-		* rm [alias] : Removes a remote project alias
-	* git fetch [alias]/[url] - Update from a remote repository
-	* git pull [alias]/[url] - Does a "get fetch" followed by a "get merge" (This is the lazy (wo)man's way, and could cause problems)
-	* git push [alias][url] - 
+* Branching and Merging 
+	* git branch - Used to List (default), Create, Remove, and 
+		Switch Branch Context. 
+		* [branchname] : Create a new Branch from last Commit. This 
+			is like a bookmark of a snapshot that we can return to 
+			at any point. 
+		* -d [branchname] : Delete a branch. 
+	* git checkout [branchname] - Open/Switch to branch. 
+		* -b : Creates a new branch and opens it. 
+	* git merge - Merge a branch context into your current branch. For
+		more info on merge conflicts go to http://gitref.org/branching/ 
+	*
 	
-* Other Tips
-	* Add an alias (Does not seem to working with Windows Version)
-		$ config --global alias.unstage "reset HEAD"  
-		Now you can unstage like this git unstage --[file] instead of git reset HEAD --[file]
-	* Turn Coloring On
-		$ git config --global color.ui true
+* Logs and Tags
+	* git log - Shows the commit history or a branch.
+		(Opens in vi, type :q to quit)
+		* --oneline : Shows a compact version.
+		* --graph : Creates a topology graph (can be used with oneline)
+		* --decorate : Shows tags and other info (pretty colors)
+	* git tag -a [message] - Tags a point in history as important.
+		(Always use the -a when tagging to get who,when,why)
+		* You can add tag to old commit using the commit SHA
+			Example: $ git tag -a v0.1 [SHA]
+	*
+	
+* Sharing and Updating Projects 
+	* git remote - Used to List (default), Add, Remove, Fetch, Pull, 
+		and Push Remote Repositories. 
+		* -v : Show URLs in List 
+		* add [alias] [url] : Adds a remote project alias 
+		* rm [alias] : Removes a remote project alias 
+	* git fetch [alias] - Update from a remote repository 
+	* git pull [alias] - Does a "get fetch" followed by a 
+		"get merge" (This is the lazy (wo)man's way, and could cause 
+		problems) 
+	* git push [alias] [branch] - push branches to a remote repository 
+	*
+	
+* Other Tips 
+	* Add an alias (Does not seem to working with Windows Version) 
+		$ config --global alias.unstage "reset HEAD" 
+		(Now you can unstage like this git unstage --[file] instead o
+		f git reset HEAD --[file])
+	* Turn Coloring On 
+		$ git config --global color.ui true 
+	*
+
+
